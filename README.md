@@ -22,7 +22,6 @@ Deploy:
 Link do site publicado:
   [https://kauacovre.github.io/Site-S.I/](https://kauacovre.github.io/Site-S.I/)
 
-Licença
-
-Este projeto está sob a licença **MIT**.
-Consulte o arquivo `LICENSE` para mais informações.
+Licença:
+  Este projeto está sob a licença **MIT**.
+  Consulte o arquivo `LICENSE` para mais informações.
