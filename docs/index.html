@@ -1,200 +1,1034 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>S.I Alinhamento e Balanceamento - Especialistas em Alinhamento e Balanceamento de Caminhões</title>
-    <meta name="description" content="Serviços profissionais de alinhamento e balanceamento para caminhões e ônibus e veículos pesados. Melhore a segurança e reduza o desgaste dos pneus.">
-    <meta name="keywords" content="alinhamento de caminhões, balanceamento eixos dianteiros">
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "AutoRepair",
-        "name": "S.I Alinhamento",
-        "image": "https://www.sialinhamento.com.br/logo.jpg",
-        "@id": "",
-        "url": "https://www.sialinhamento.com.br",
-        "telephone": "+55 (48)99931-8796",
-        "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "BR-101, km337",
-            "addressLocality": "Bairro Morrotes",
-            "addressRegion": "SC",
-            "postalCode": "88704-801",
-            "addressCountry": "BR"
-        },
-        "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": -28.4783862,
-            "longitude": -49.0317786,21z
-        },
-        "openingHoursSpecification": {
-            "@type": "OpeningHoursSpecification",
-            "dayOfWeek": [
-                "Monday",
-                "Tuesday",
-                "Wednesday",
-                "Thursday",
-                "Friday",
-            ],
-            "opens": "08:00",
-            "closes": "18:00"
-        } 
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>S.I Alinhamento — Especialistas em Caminhões</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #0d0d0d;
+      --bg-2:      #131313;
+      --bg-card:   #1a1a1a;
+      --border:    #2a2a2a;
+      --accent:    #e8a020;
+      --accent-2:  #ff6b1a;
+      --text:      #f0ede8;
+      --text-muted:#8a8580;
+      --font-head: 'Bebas Neue', sans-serif;
+      --font-body: 'DM Sans', sans-serif;
     }
-    </script>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <script>
-        const mobileMenu = document.getElementById('mobile-menu');
-        const navLinks = document.querySelector('.nav-links');
-        
-        mobileMenu.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
-        </script>
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── SCROLLBAR ── */
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 10px; }
+
+    /* ── NOISE OVERLAY ── */
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 9999;
+      opacity: .4;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.2rem 6%;
+      transition: background .4s, backdrop-filter .4s;
+    }
+    nav.scrolled {
+      background: rgba(13,13,13,.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-family: var(--font-head);
+      font-size: 1.6rem;
+      letter-spacing: .08em;
+      color: var(--text);
+      text-decoration: none;
+    }
+    .nav-logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 2.4rem; list-style: none; }
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: .85rem;
+      font-weight: 500;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+    .nav-cta {
+      background: var(--accent);
+      color: #0d0d0d !important;
+      padding: .55rem 1.3rem;
+      border-radius: 3px;
+      font-weight: 700 !important;
+    }
+    .nav-cta:hover { background: var(--accent-2); color: #fff !important; }
+
+    /* hamburger */
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--text); transition: .3s; }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 0 6%;
+      gap: 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    #hero::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 60% 80% at 70% 50%, rgba(232,160,32,.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: .5rem;
+      background: rgba(232,160,32,.12);
+      border: 1px solid rgba(232,160,32,.3);
+      color: var(--accent);
+      font-size: .75rem; font-weight: 700;
+      letter-spacing: .1em; text-transform: uppercase;
+      padding: .4rem 1rem; border-radius: 2px;
+      margin-bottom: 1.5rem;
+      opacity: 0; transform: translateY(20px);
+      animation: fadeUp .6s .2s forwards;
+    }
+    .hero-badge::before { content: '●'; font-size: .5rem; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.3} }
+
+    .hero-title {
+      font-family: var(--font-head);
+      font-size: clamp(3.5rem, 7vw, 6.5rem);
+      line-height: .95;
+      letter-spacing: .02em;
+      opacity: 0; transform: translateY(30px);
+      animation: fadeUp .7s .35s forwards;
+    }
+    .hero-title em { font-style: normal; color: var(--accent); display: block; }
+
+    .hero-sub {
+      margin-top: 1.5rem;
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      max-width: 440px;
+      font-weight: 300;
+      opacity: 0; transform: translateY(20px);
+      animation: fadeUp .6s .5s forwards;
+    }
+
+    .hero-actions {
+      display: flex; gap: 1rem; margin-top: 2.5rem;
+      opacity: 0; transform: translateY(20px);
+      animation: fadeUp .6s .65s forwards;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: #0d0d0d;
+      padding: .85rem 2rem;
+      font-family: var(--font-body);
+      font-weight: 700;
+      font-size: .9rem;
+      letter-spacing: .04em;
+      border: none; border-radius: 3px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background .2s, transform .2s;
+    }
+    .btn-primary:hover { background: var(--accent-2); transform: translateY(-2px); }
+    .btn-outline {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
+      padding: .85rem 2rem;
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: .9rem;
+      letter-spacing: .04em;
+      border-radius: 3px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: border-color .2s, color .2s, transform .2s;
+    }
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+
+    .hero-stats {
+      display: flex; gap: 2.5rem; margin-top: 3rem;
+      opacity: 0; transform: translateY(20px);
+      animation: fadeUp .6s .8s forwards;
+    }
+    .stat-num {
+      font-family: var(--font-head);
+      font-size: 2.4rem;
+      color: var(--accent);
+      line-height: 1;
+    }
+    .stat-label { font-size: .78rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: .06em; margin-top: .2rem; }
+
+    /* Hero visual */
+    .hero-visual {
+      position: relative;
+      height: 520px;
+      opacity: 0;
+      animation: fadeIn .9s .4s forwards;
+    }
+    .hero-visual-card {
+      position: absolute;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .hero-visual-card.main {
+      width: 80%; height: 380px; right: 0; top: 50%;
+      transform: translateY(-50%);
+    }
+    .hero-visual-card.main img { width: 100%; height: 100%; object-fit: cover; filter: brightness(.85) saturate(1.1); }
+    .hero-visual-card.mini {
+      width: 42%; height: 180px; left: 0; bottom: 30px;
+      border: 1px solid rgba(232,160,32,.3);
+      box-shadow: 0 0 30px rgba(232,160,32,.15);
+    }
+    .hero-visual-card.mini img { width: 100%; height: 100%; object-fit: cover; filter: brightness(.9) saturate(1.2); }
+    .hero-accent-line {
+      position: absolute; top: 0; left: 50%;
+      width: 1px; height: 100%;
+      background: linear-gradient(to bottom, transparent, var(--accent), transparent);
+      opacity: .2;
+    }
+
+    /* Placeholder boxes for images */
+    .img-placeholder {
+      width: 100%; height: 100%;
+      background: linear-gradient(135deg, #1e1e1e 0%, #2a2a2a 100%);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: .5rem;
+      color: var(--text-muted);
+      font-size: .8rem;
+    }
+    .img-placeholder svg { opacity: .4; }
+
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    /* ── MARQUEE ── */
+    .marquee-section {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 0;
+      overflow: hidden;
+      background: var(--bg-2);
+    }
+    .marquee-track {
+      display: flex; gap: 4rem;
+      animation: marquee 18s linear infinite;
+      white-space: nowrap;
+    }
+    .marquee-item {
+      display: flex; align-items: center; gap: .7rem;
+      font-size: .8rem; font-weight: 600;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: var(--text-muted);
+      flex-shrink: 0;
+    }
+    .marquee-item span { color: var(--accent); font-size: 1.2rem; }
+    @keyframes marquee { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+
+    /* ── SECTION BASE ── */
+    section { padding: 7rem 6%; }
+    .section-label {
+      display: inline-flex; align-items: center; gap: .6rem;
+      font-size: .72rem; font-weight: 700; letter-spacing: .14em;
+      text-transform: uppercase; color: var(--accent);
+      margin-bottom: 1rem;
+    }
+    .section-label::before { content: ''; display: block; width: 24px; height: 1px; background: var(--accent); }
+    h2.section-title {
+      font-family: var(--font-head);
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      line-height: 1;
+      letter-spacing: .02em;
+      margin-bottom: 1rem;
+    }
+    h2.section-title em { font-style: normal; color: var(--accent); }
+
+    /* ── SERVICES ── */
+    #servicos { background: var(--bg-2); }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5px;
+      margin-top: 4rem;
+      border: 1.5px solid var(--border);
+    }
+    .service-card {
+      background: var(--bg-card);
+      padding: 2.5rem 2rem;
+      transition: background .3s;
+      position: relative;
+      overflow: hidden;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute; bottom: 0; left: 0;
+      width: 0; height: 2px;
+      background: var(--accent);
+      transition: width .4s ease;
+    }
+    .service-card:hover { background: #1f1f1f; }
+    .service-card:hover::before { width: 100%; }
+    .service-icon {
+      width: 48px; height: 48px;
+      background: rgba(232,160,32,.1);
+      border: 1px solid rgba(232,160,32,.2);
+      border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1.5rem;
+      color: var(--accent);
+    }
+    .service-card h3 {
+      font-family: var(--font-head);
+      font-size: 1.5rem;
+      letter-spacing: .04em;
+      margin-bottom: .6rem;
+    }
+    .service-card p { color: var(--text-muted); font-size: .9rem; line-height: 1.7; }
+    .service-tag {
+      display: inline-block;
+      margin-top: 1.2rem;
+      font-size: .72rem; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: var(--accent);
+    }
+
+    /* ── ABOUT ── */
+    #sobre {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+    }
+    .about-media {
+      position: relative;
+      height: 480px;
+    }
+    .about-img-main {
+      position: absolute; right: 0; top: 0;
+      width: 82%; height: 380px;
+      border-radius: 6px; overflow: hidden;
+      border: 1px solid var(--border);
+    }
+    .about-img-main img { width: 100%; height: 100%; object-fit: cover; filter: brightness(.85); }
+    .about-img-sub {
+      position: absolute; left: 0; bottom: 0;
+      width: 52%; height: 220px;
+      border-radius: 6px; overflow: hidden;
+      border: 1px solid rgba(232,160,32,.25);
+      box-shadow: 0 0 40px rgba(232,160,32,.1);
+    }
+    .about-img-sub img { width: 100%; height: 100%; object-fit: cover; }
+    .about-years {
+      position: absolute; right: 0; bottom: -20px;
+      background: var(--accent);
+      color: #0d0d0d;
+      padding: 1rem 1.4rem;
+      border-radius: 4px;
+      text-align: center;
+    }
+    .about-years strong { display: block; font-family: var(--font-head); font-size: 2.4rem; line-height: 1; }
+    .about-years span { font-size: .7rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; }
+
+    .about-text p { color: var(--text-muted); margin-bottom: 1.2rem; font-size: .95rem; line-height: 1.8; }
+    .about-features {
+      margin-top: 2rem;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+    }
+    .feature-item {
+      display: flex; align-items: flex-start; gap: .8rem;
+    }
+    .feature-check {
+      width: 22px; height: 22px; flex-shrink: 0;
+      background: rgba(232,160,32,.12);
+      border: 1px solid rgba(232,160,32,.3);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--accent); font-size: .7rem; margin-top: .15rem;
+    }
+    .feature-item p { color: var(--text-muted); font-size: .85rem; }
+    .feature-item strong { color: var(--text); display: block; font-size: .88rem; }
+
+    /* ── WHY ── */
+    #por-que { background: var(--bg-2); }
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      margin-top: 4rem;
+      border: 1px solid var(--border);
+    }
+    .why-card {
+      background: var(--bg-card);
+      padding: 2.5rem 2rem;
+      position: relative;
+    }
+    .why-number {
+      font-family: var(--font-head);
+      font-size: 4rem;
+      color: var(--border);
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+    .why-card h3 { font-family: var(--font-head); font-size: 1.4rem; letter-spacing: .04em; margin-bottom: .6rem; }
+    .why-card p { color: var(--text-muted); font-size: .88rem; line-height: 1.7; }
+    .why-card:hover .why-number { color: rgba(232,160,32,.2); transition: color .3s; }
+
+    /* ── GALLERY ── */
+    #galeria .gallery-header {
+      display: flex; align-items: flex-end; justify-content: space-between;
+      margin-bottom: 3rem;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: repeat(2, 200px);
+      gap: 6px;
+    }
+    .gallery-item { overflow: hidden; border-radius: 4px; background: var(--bg-card); cursor: pointer; }
+    .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s, filter .3s; filter: brightness(.8) saturate(.9); }
+    .gallery-item:hover img { transform: scale(1.06); filter: brightness(1) saturate(1.2); }
+    .gallery-item:nth-child(1) { grid-column: span 5; }
+    .gallery-item:nth-child(2) { grid-column: span 4; }
+    .gallery-item:nth-child(3) { grid-column: span 3; }
+    .gallery-item:nth-child(4) { grid-column: span 3; }
+    .gallery-item:nth-child(5) { grid-column: span 5; }
+    .gallery-item:nth-child(6) { grid-column: span 4; }
+
+    /* ── BLOG ── */
+    #blog { background: var(--bg-2); }
+    .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3.5rem; }
+    .blog-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 6px; overflow: hidden;
+      transition: border-color .3s, transform .3s;
+    }
+    .blog-card:hover { border-color: rgba(232,160,32,.4); transform: translateY(-4px); }
+    .blog-card-img { height: 180px; overflow: hidden; }
+    .blog-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s; filter: brightness(.8); }
+    .blog-card:hover .blog-card-img img { transform: scale(1.05); }
+    .blog-card-body { padding: 1.5rem; }
+    .blog-tag {
+      font-size: .68rem; font-weight: 700; letter-spacing: .1em;
+      text-transform: uppercase; color: var(--accent);
+      margin-bottom: .7rem;
+    }
+    .blog-card-body h3 { font-size: 1rem; font-weight: 700; line-height: 1.4; margin-bottom: .8rem; }
+    .blog-card-body p { color: var(--text-muted); font-size: .82rem; line-height: 1.65; }
+    .blog-read-more {
+      display: inline-flex; align-items: center; gap: .4rem;
+      margin-top: 1.2rem;
+      color: var(--accent);
+      font-size: .82rem; font-weight: 700;
+      text-decoration: none;
+      transition: gap .2s;
+    }
+    .blog-read-more:hover { gap: .8rem; }
+
+    /* ── CONTACT ── */
+    #contato {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: start;
+    }
+    .contact-info { padding-top: .5rem; }
+    .contact-info p { color: var(--text-muted); font-size: .95rem; line-height: 1.8; margin-bottom: 2.5rem; }
+    .contact-items { display: flex; flex-direction: column; gap: 1.2rem; }
+    .contact-item {
+      display: flex; align-items: center; gap: 1rem;
+      padding: 1.2rem 1.4rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      transition: border-color .3s;
+    }
+    .contact-item:hover { border-color: rgba(232,160,32,.3); }
+    .contact-item-icon {
+      width: 40px; height: 40px; flex-shrink: 0;
+      background: rgba(232,160,32,.1);
+      border: 1px solid rgba(232,160,32,.2);
+      border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--accent); font-size: 1rem;
+    }
+    .contact-item strong { display: block; font-size: .78rem; text-transform: uppercase; letter-spacing: .06em; color: var(--text-muted); }
+    .contact-item a, .contact-item span { color: var(--text); text-decoration: none; font-weight: 500; font-size: .92rem; }
+    .contact-item a:hover { color: var(--accent); }
+
+    /* Form */
+    .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .form-group { display: flex; flex-direction: column; gap: .4rem; }
+    .form-group label { font-size: .75rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--text-muted); }
+    .form-group input, .form-group textarea, .form-group select {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: .85rem 1rem;
+      border-radius: 4px;
+      font-family: var(--font-body);
+      font-size: .9rem;
+      transition: border-color .2s;
+      outline: none;
+    }
+    .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--accent); }
+    .form-group textarea { resize: vertical; min-height: 110px; }
+    .form-group select option { background: var(--bg-card); }
+    .form-submit {
+      background: var(--accent);
+      color: #0d0d0d;
+      border: none;
+      padding: 1rem;
+      border-radius: 4px;
+      font-family: var(--font-body);
+      font-weight: 700;
+      font-size: .9rem;
+      letter-spacing: .04em;
+      cursor: pointer;
+      transition: background .2s, transform .2s;
+      display: flex; align-items: center; justify-content: center; gap: .5rem;
+    }
+    .form-submit:hover { background: var(--accent-2); transform: translateY(-1px); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--bg-2);
+      border-top: 1px solid var(--border);
+      padding: 3rem 6% 2rem;
+    }
+    .footer-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+      flex-wrap: wrap; gap: 1.5rem;
+    }
+    .footer-logo { font-family: var(--font-head); font-size: 1.5rem; letter-spacing: .08em; }
+    .footer-logo span { color: var(--accent); }
+    .footer-links { display: flex; gap: 2rem; list-style: none; }
+    .footer-links a { color: var(--text-muted); text-decoration: none; font-size: .82rem; transition: color .2s; }
+    .footer-links a:hover { color: var(--accent); }
+    .footer-bottom {
+      display: flex; align-items: center; justify-content: space-between;
+      padding-top: 1.5rem;
+      color: var(--text-muted); font-size: .78rem;
+      flex-wrap: wrap; gap: .5rem;
+    }
+    .footer-bottom a { color: var(--accent); text-decoration: none; font-weight: 600; }
+
+    /* ── WHATSAPP FLOAT ── */
+    .wa-float {
+      position: fixed; bottom: 2rem; right: 2rem; z-index: 999;
+      width: 56px; height: 56px;
+      background: #25d366;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(37,211,102,.4);
+      text-decoration: none;
+      transition: transform .3s, box-shadow .3s;
+      animation: waBounce 2s 3s ease-in-out infinite;
+    }
+    .wa-float:hover { transform: scale(1.1); box-shadow: 0 6px 28px rgba(37,211,102,.6); animation: none; }
+    @keyframes waBounce {
+      0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)}
+    }
+
+    /* ── SCROLL REVEAL ── */
+    .reveal { opacity: 0; transform: translateY(32px); transition: opacity .65s ease, transform .65s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      #hero { grid-template-columns: 1fr; padding-top: 8rem; }
+      .hero-visual { height: 300px; }
+      .hero-visual-card.main { height: 260px; width: 90%; left: 5%; right: auto; }
+      .hero-visual-card.mini { display: none; }
+      #sobre { grid-template-columns: 1fr; gap: 3rem; }
+      .about-media { height: 300px; }
+      #contato { grid-template-columns: 1fr; gap: 3rem; }
+      .why-grid { grid-template-columns: 1fr 1fr; }
+      .blog-grid { grid-template-columns: 1fr 1fr; }
+      .gallery-grid { grid-template-columns: repeat(6, 1fr); grid-template-rows: repeat(3, 160px); }
+      .gallery-item:nth-child(1) { grid-column: span 3; }
+      .gallery-item:nth-child(2) { grid-column: span 3; }
+      .gallery-item:nth-child(3) { grid-column: span 2; }
+      .gallery-item:nth-child(4) { grid-column: span 2; }
+      .gallery-item:nth-child(5) { grid-column: span 2; }
+      .gallery-item:nth-child(6) { grid-column: span 6; }
+    }
+    @media (max-width: 768px) {
+      nav { padding: 1rem 5%; }
+      .nav-links { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: rgba(13,13,13,.97); padding: 1.5rem 5%; gap: 1.2rem; border-bottom: 1px solid var(--border); }
+      .nav-links.open { display: flex; }
+      .hamburger { display: flex; }
+      .why-grid, .blog-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .hero-stats { gap: 1.5rem; }
+      .about-features { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <nav>
-                <a href="#" class="logo">S.I<span>Alinhamento</span></a>
-                <ul class="nav-links">
-                    <li><a href="#servicos">Serviços</a></li>
-                    <li><a href="#sobre">Sobre Nós</a></li>
-                    <li><a href="#blog">Blog</a></li>
-                    <li><a href="#galeria">Galeria</a></li>
-                    <li><a href="#contato">Contato</a></li>
-                </ul>
-                <div class="menu-toggle" id="mobile-menu">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                  </div>                  
-            </nav>
-        </div>
-    </header>
-    <section class="hero">
-        <div class="container hero-content">
-            <h1>Alinhamento e Balanceamento Profissional para Caminhões</h1>
-            <p>Proteja seu investimento, aumente a segurança e reduza custos com manutenção com nossos serviços especializados para veículos pesados.</p>
-        </div>
-    </section>
-    
-    <section id="servicos" class="services-section">
-        <div class="container">
-            <h2 class="section-title">Nossos Serviços</h2>
-            <div class="services">
-                <div class="service-card">
-                    <i class="fas fa-truck-monster"></i>
-                    <h3>Alinhamento de Caminhões</h3>
-                    <p>Alinhamento preciso de eixos dianteiro e traseiro com equipamentos tecnologicos.</p>
-                </div>
-                <div class="service-card">
-                    <i class="fas fa-truck"></i>
-                    <h3>Balanceamento de Rodas</h3>
-                    <p>Balanceamento estático e dinâmico para todos os tipos de rodas de caminhões.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <section id="sobre" class="about">
-        <div class="container">
-            <h2 class="section-title">Sobre Nós</h2>
-            <div class="about-content">
-                <div>
-                    <h3>Especialistas em Veículos Pesados</h3>
-                    <p>Com mais de 5 anos de experiência no mercado, a S.I Alinhamento se consolidou como referência em serviços de alinhamento e balanceamento para caminhões na cidade e proximidades de Tubarão. Nossa equipe altamente qualificada e equipamentos tecnologicos garantem um serviço preciso e confiável.</p>
-                    <p>Entendemos que seu caminhão é seu meio de vida, por isso nos comprometemos a oferecer o melhor serviço para manter seu veículo seguro e com desempenho máximo na estrada.</p>
-                </div>
-                <img src="assets/images/foto.png" alt="Nossa equipe trabalhando" class="about-img">
-            </div>
-        </div>
-    </section>
-    
-    <section id="blog" class="blog-section">
-        <div class="container">
-            <h2 class="section-title">Blog e Dicas</h2>
-            <div class="blog-posts">
-                <article class="blog-card">
-                    <img src="assets/images/penus.jpg" alt="Caminhão com problemas de alinhamento">
-                    <div class="blog-content">
-                        <h3>Sinais de que seu caminhão precisa de alinhamento</h3>
-                        <p>Descubra os principais sinais que indicam quando seu caminhão precisa de um alinhamento para evitar desgaste prematuro dos pneus e problemas de direção.</p>
-                        <a href="https://www.portaldotransito.com.br/noticias/mobilidade-e-tecnologia/seguranca/como-saber-quando-e-a-hora-de-fazer-o-alinhamento-do-veiculo/" class="read-more">Leia mais →</a>
-                    </div>
-                </article>
-                
-                <article class="blog-card">
-                    <img src="assets/images/pneuirregular.jpg" alt="Pneus com desgaste irregular">
-                    <div class="blog-content">
-                        <h3>Como o balanceamento correto prolonga a vida dos pneus</h3>
-                        <p>Entenda como um balanceamento profissional pode economizar milhares de reais em pneus ao longo do tempo e melhorar a segurança nas estradas.</p>
-                        <a href="https://www.bestenpneus.com.br/blog/balanceamento-dos-pneus-evite-um-desgaste-rapido" class="read-more">Leia mais →</a>
-                    </div>
-                </article>
-                
-                <article class="blog-card">
-                    <img src="assets/images/levexpesado.jpg" alt="Comparação entre veículos leves e pesados">
-                    <div class="blog-content">
-                        <h3>Diferenças entre alinhamento para veículos leves e pesados</h3>
-                        <p>Conheça as principais diferenças técnicas nos processos de alinhamento para veículos leves e pesados e por que você precisa de um especialista para seu caminhão.</p>
-                        <a href="https://blog.tecnodux.com.br/entenda-a-tecnologia-por-tras-do-alinhamento-de-caminhoes-e-carros/" class="read-more">Leia mais →</a>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </section>
-    
-    <section id="galeria" class="gallery-section">
-        <div class="container">
-            <h2 class="section-title">Nossa Oficina em Ação</h2>
-            <div class="gallery">
-                <div class="gallery-item">
-                    <img src="assets/images//aparelho.png" alt="Equipamento profissional para alinhamento">
-                </div>
-                <div class="gallery-item">
-                    <img src="assets/images/tecnico.png" alt="Técnico realizando alinhamento">
-                </div>
-                <div class="gallery-item">
-                    <img src="assets/images/antes x depos.jpg" alt="Resultado antes e depois do alinhamento">
-                </div>
-                <div class="gallery-item">
-                    <img src="assets/images/visaogeral.png" alt="Vista geral da nossa oficina">
-                </div>
-                <div class="gallery-item">
-                    <img src="assets/images/balanceamento.png" alt="Máquina de balanceamento profissional">
-                </div>
-                <div class="gallery-item">
-                    <img src="assets/images/equipetop.png" alt="Nossa equipe especializada">
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <section id="contato" class="contact">
-        <div class="container">
-            <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3507.0355372845393!2d-49.031709!3d-28.4784764!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x952143f76e5d3de9%3A0x1440fba0c408603f!2sS.i%20alinhamentos%20Ltda!5e0!3m2!1spt-BR!2sbr!4v1743476077069!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">S.<span>I</span> Alinhamento</a>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="#servicos">Serviços</a></li>
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#galeria">Galeria</a></li>
+    <li><a href="#blog">Blog</a></li>
+    <li><a href="#contato" class="nav-cta">Agendar</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" aria-label="Menu" role="button" tabindex="0">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-content">
+    <div class="hero-badge">Especialistas em Veículos Pesados</div>
+    <h1 class="hero-title">
+      Alinhamento<br>
+      <em>de Precisão</em><br>
+      Para Caminhões
+    </h1>
+    <p class="hero-sub">
+      Mais de 5 anos protegendo seu investimento. Equipamentos de última geração, equipe especializada — na BR-101, Tubarão/SC.
+    </p>
+    <div class="hero-actions">
+      <a href="https://wa.me/5548999318796?text=Olá!%20Gostaria%20de%20agendar%20um%20serviço." class="btn-primary" target="_blank">
+        Agendar via WhatsApp
+      </a>
+      <a href="#servicos" class="btn-outline">Ver Serviços</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="stat-num">5+</div>
+        <div class="stat-label">Anos de mercado</div>
+      </div>
+      <div>
+        <div class="stat-num">2K+</div>
+        <div class="stat-label">Caminhões atendidos</div>
+      </div>
+      <div>
+        <div class="stat-num">100%</div>
+        <div class="stat-label">Satisfação</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-accent-line"></div>
+    <div class="hero-visual-card main">
+      <img src="assets/images/visaogeral.png" alt="Vista geral da oficina S.I Alinhamento"
+           onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'><svg xmlns=\'http://www.w3.org/2000/svg\' width=\'40\' height=\'40\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1.5\' viewBox=\'0 0 24 24\'><path d=\'M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z\'/><polyline points=\'9 22 9 12 15 12 15 22\'/></svg><span>Visão Geral da Oficina</span></div>'" />
+    </div>
+    <div class="hero-visual-card mini">
+      <img src="assets/images/aparelho.png" alt="Equipamento profissional"
+           onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'><svg xmlns=\'http://www.w3.org/2000/svg\' width=\'32\' height=\'32\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1.5\' viewBox=\'0 0 24 24\'><circle cx=\'12\' cy=\'12\' r=\'3\'/><path d=\'M19.07 4.93a10 10 0 010 14.14M16.24 7.76a6 6 0 010 8.49M6 18l2-2\'/></svg><span>Equipamento de Alinhamento</span></div>'" />
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-section" aria-hidden="true">
+  <div class="marquee-track">
+    <div class="marquee-item"><span>⬡</span> Alinhamento de Eixos</div>
+    <div class="marquee-item"><span>⬡</span> Balanceamento Dinâmico</div>
+    <div class="marquee-item"><span>⬡</span> Veículos Pesados</div>
+    <div class="marquee-item"><span>⬡</span> Tubarão / SC</div>
+    <div class="marquee-item"><span>⬡</span> BR-101 km 337</div>
+    <div class="marquee-item"><span>⬡</span> 5+ Anos de Experiência</div>
+    <div class="marquee-item"><span>⬡</span> Equipamentos Tecnológicos</div>
+    <div class="marquee-item"><span>⬡</span> Alinhamento de Eixos</div>
+    <div class="marquee-item"><span>⬡</span> Balanceamento Dinâmico</div>
+    <div class="marquee-item"><span>⬡</span> Veículos Pesados</div>
+    <div class="marquee-item"><span>⬡</span> Tubarão / SC</div>
+    <div class="marquee-item"><span>⬡</span> BR-101 km 337</div>
+    <div class="marquee-item"><span>⬡</span> 5+ Anos de Experiência</div>
+    <div class="marquee-item"><span>⬡</span> Equipamentos Tecnológicos</div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section id="servicos">
+  <div class="reveal">
+    <div class="section-label">O que fazemos</div>
+    <h2 class="section-title">Nossos <em>Serviços</em></h2>
+  </div>
+  <div class="services-grid reveal">
+    <div class="service-card">
+      <div class="service-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+      </div>
+      <h3>Alinhamento de Eixos</h3>
+      <p>Correção precisa do eixo dianteiro e traseiro com equipamentos computadorizados de última geração para garantir dirigibilidade e segurança máxima.</p>
+      <div class="service-tag">→ Eixo dianteiro & traseiro</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/></svg>
+      </div>
+      <h3>Balanceamento de Rodas</h3>
+      <p>Balanceamento estático e dinâmico para todos os tipos de rodas de caminhões. Elimina vibrações e reduz o desgaste irregular dos pneus.</p>
+      <div class="service-tag">→ Estático & dinâmico</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+      </div>
+      <h3>Manutenção Preventiva</h3>
+      <p>Diagnóstico completo do sistema de direção e suspensão para identificar problemas antes que se tornem falhas graves e custosas.</p>
+      <div class="service-tag">→ Diagnóstico completo</div>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      </div>
+      <h3>Correção de Geometria</h3>
+      <p>Ajuste completo dos ângulos de caster, camber e convergência para garantir que seu veículo percorra o máximo em segurança e economia.</p>
+      <div class="service-tag">→ Caster, camber & convergência</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="sobre">
+  <div class="about-media reveal">
+    <div class="about-img-main">
+      <img src="assets/images/foto.png" alt="Equipe S.I Alinhamento"
+           onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'><svg xmlns=\'http://www.w3.org/2000/svg\' width=\'40\' height=\'40\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1.5\' viewBox=\'0 0 24 24\'><path d=\'M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2\'/><circle cx=\'9\' cy=\'7\' r=\'4\'/><path d=\'M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75\'/></svg><span>Nossa Equipe</span></div>'" />
+    </div>
+    <div class="about-img-sub">
+      <img src="assets/images/tecnico.png" alt="Técnico em ação"
+           onerror="this.parentElement.innerHTML='<div class=\'img-placeholder\'><svg xmlns=\'http://www.w3.org/2000/svg\' width=\'32\' height=\'32\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'1.5\' viewBox=\'0 0 24 24\'><path d=\'M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z\'/></svg><span>Técnico Especialista</span></div>'" />
+    </div>
+    <div class="about-years">
+      <strong>5+</strong>
+      <span>Anos de<br>experiência</span>
+    </div>
+  </div>
+  <div class="about-text reveal">
+    <div class="section-label">Quem somos</div>
+    <h2 class="section-title">Especialistas em<br><em>Veículos Pesados</em></h2>
+    <p>Com mais de 5 anos de experiência, a S.I Alinhamento se consolidou como referência em serviços de alinhamento e balanceamento para caminhões em Tubarão e região.</p>
+    <p>Entendemos que seu caminhão é seu meio de vida. Nossa equipe altamente qualificada e equipamentos tecnológicos garantem um serviço preciso, confiável e com qualidade premium.</p>
+    <div class="about-features">
+      <div class="feature-item">
+        <div class="feature-check">✓</div>
+        <div><strong>Equipamentos Modernos</strong><p>Tecnologia de ponta para diagnóstico preciso</p></div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-check">✓</div>
+        <div><strong>Equipe Qualificada</strong><p>Técnicos especializados em veículos pesados</p></div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-check">✓</div>
+        <div><strong>Localização Estratégica</strong><p>BR-101, km 337 — fácil acesso para caminhoneiros</p></div>
+      </div>
+      <div class="feature-item">
+        <div class="feature-check">✓</div>
+        <div><strong>Atendimento Ágil</strong><p>Minimizamos o tempo parado do seu veículo</p></div>
+      </div>
+    </div>
+    <div style="margin-top:2.5rem">
+      <a href="#contato" class="btn-primary">Entre em Contato</a>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section id="por-que">
+  <div class="reveal">
+    <div class="section-label">Vantagens</div>
+    <h2 class="section-title">Por que nos <em>Escolher?</em></h2>
+  </div>
+  <div class="why-grid reveal">
+    <div class="why-card">
+      <div class="why-number">01</div>
+      <h3>Economia nos Pneus</h3>
+      <p>Alinhamento correto reduz o desgaste irregular dos pneus, economizando milhares de reais ao longo do tempo e aumentando a segurança nas estradas.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-number">02</div>
+      <h3>Menor Consumo</h3>
+      <p>Rodas mal alinhadas aumentam a resistência ao rolamento. O alinhamento correto melhora o consumo de combustível e reduz seus custos operacionais.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-number">03</div>
+      <h3>Mais Segurança</h3>
+      <p>Um caminhão com alinhamento adequado tem melhor controle direcional, frenagem eficiente e menor risco de acidentes nas rodovias.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-number">04</div>
+      <h3>Diagnóstico Digital</h3>
+      <p>Nossos equipamentos computadorizados fornecem relatórios precisos antes e depois do serviço, com total transparência para o cliente.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-number">05</div>
+      <h3>Atendimento Rápido</h3>
+      <p>Sabemos que cada hora parado é prejuízo. Trabalhamos com agilidade sem abrir mão da qualidade para você voltar à estrada o quanto antes.</p>
+    </div>
+    <div class="why-card">
+      <div class="why-number">06</div>
+      <h3>Localização Ideal</h3>
+      <p>Estrategicamente localizado na BR-101 km 337 em Tubarão/SC, de fácil acesso para caminhoneiros que percorrem a costa catarinense.</p>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="galeria">
+  <div class="gallery-header reveal">
+    <div>
+      <div class="section-label">Nosso trabalho</div>
+      <h2 class="section-title">Nossa <em>Oficina</em></h2>
+    </div>
+    <a href="#contato" class="btn-outline">Agendar Serviço</a>
+  </div>
+  <div class="gallery-grid reveal">
+    <div class="gallery-item">
+      <img src="assets/images/aparelho.png" alt="Equipamento de alinhamento"
+           onerror="this.style.display='none';this.parentElement.style.background='#1f1f1f'" />
+    </div>
+    <div class="gallery-item">
+      <img src="assets/images/tecnico.png" alt="Técnico realizando serviço"
+           onerror="this.style.display='none';this.parentElement.style.background='#1f1f1f'" />
+    </div>
+    <div class="gallery-item">
+      <img src="assets/images/antes x depos.jpg" alt="Antes e depois do alinhamento"
+           onerror="this.style.display='none';this.parentElement.style.background='#1f1f1f'" />
+    </div>
+    <div class="gallery-item">
+      <img src="assets/images/visaogeral.png" alt="Vista geral da oficina"
+           onerror="this.style.display='none';this.parentElement.style.background='#1f1f1f'" />
+    </div>
+    <div class="gallery-item">
+      <img src="assets/images/balanceamento.png" alt="Máquina de balanceamento"
+           onerror="this.style.display='none';this.parentElement.style.background='#1f1f1f'" />
+    </div>
+    <div class="gallery-item">
+      <img src="assets/images/equipetop.png" alt="Nossa equipe especializada"
+           onerror="this.style.display='none';this.parentElement.style.background='#1f1f1f'" />
+    </div>
+  </div>
+</section>
+
+<!-- BLOG -->
+<section id="blog">
+  <div class="reveal">
+    <div class="section-label">Dicas & Conteúdo</div>
+    <h2 class="section-title">Blog e <em>Dicas</em></h2>
+  </div>
+  <div class="blog-grid reveal">
+    <div class="blog-card">
+      <div class="blog-card-img">
+        <img src="assets/images/penus.jpg" alt="Caminhão com problemas de alinhamento"
+             onerror="this.style.display='none';this.parentElement.style.background='#2a2a2a'" />
+      </div>
+      <div class="blog-card-body">
+        <div class="blog-tag">Manutenção</div>
+        <h3>Sinais de que seu caminhão precisa de alinhamento</h3>
+        <p>Descubra os principais indicadores de que é hora de checar o alinhamento do seu veículo pesado.</p>
+        <a href="https://www.portaldotransito.com.br/noticias/mobilidade-e-tecnologia/seguranca/como-saber-quando-e-a-hora-de-fazer-o-alinhamento-do-veiculo/" class="blog-read-more" target="_blank" rel="noopener">Leia mais →</a>
+      </div>
+    </div>
+    <div class="blog-card">
+      <div class="blog-card-img">
+        <img src="assets/images/pneuirregular.jpg" alt="Pneus com desgaste irregular"
+             onerror="this.style.display='none';this.parentElement.style.background='#2a2a2a'" />
+      </div>
+      <div class="blog-card-body">
+        <div class="blog-tag">Economia</div>
+        <h3>Como o balanceamento correto prolonga a vida dos pneus</h3>
+        <p>Entenda como o balanceamento profissional pode economizar milhares de reais em pneus ao longo do tempo.</p>
+        <a href="https://www.bestenpneus.com.br/blog/balanceamento-dos-pneus-evite-um-desgaste-rapido" class="blog-read-more" target="_blank" rel="noopener">Leia mais →</a>
+      </div>
+    </div>
+    <div class="blog-card">
+      <div class="blog-card-img">
+        <img src="assets/images/levexpesado.jpg" alt="Comparação veículos leves e pesados"
+             onerror="this.style.display='none';this.parentElement.style.background='#2a2a2a'" />
+      </div>
+      <div class="blog-card-body">
+        <div class="blog-tag">Técnico</div>
+        <h3>Diferenças entre alinhamento para veículos leves e pesados</h3>
+        <p>Conheça as diferenças técnicas e por que você precisa de um especialista para o seu caminhão.</p>
+        <a href="https://blog.tecnodux.com.br/entenda-a-tecnologia-por-tras-do-alinhamento-de-caminhoes-e-carros/" class="blog-read-more" target="_blank" rel="noopener">Leia mais →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contato">
+  <div class="contact-info reveal">
+    <div class="section-label">Fale Conosco</div>
+    <h2 class="section-title">Entre em <em>Contato</em></h2>
+    <p>Agende seu serviço, tire dúvidas ou venha nos visitar. Estamos na BR-101, prontos para atender seu caminhão com qualidade e agilidade.</p>
+    <div class="contact-items">
+      <div class="contact-item">
+        <div class="contact-item-icon">📍</div>
+        <div>
+          <strong>Endereço</strong>
+          <span>BR-101, km 337 - Morrotes, Tubarão/SC</span>
         </div>
-    </section>
-    
-    <footer>
-        <div class="container">
-            <p>S.I Alinhamento © 2019 - Todos os direitos reservados</p>
-            <p>Endereço: BR-101, km 337 - Morrotes - Tubarão/SC</p>
-            <p>Telefone: (48) 99931-8796 | WhatsApp: (48) 99931-8796</p>
-            <div class="social-links">
-                <a href="https://www.instagram.com/sialinhamento/"><i class="fab fa-instagram"></i></a>
-                <a href="https://api.whatsapp.com/send/?phone=5548999318796&text=Ol%C3%A1%2C+gostaria+de+informa%C3%A7%C3%B5es+sobre+alinhamento+de+caminh%C3%B5es&type=phone_number&app_absent=0"><i class="fab fa-whatsapp"></i></a>
-            </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-icon">📞</div>
+        <div>
+          <strong>Telefone / WhatsApp</strong>
+          <a href="https://wa.me/5548999318796" target="_blank">(48) 99931-8796</a>
         </div>
-    </footer>
-    
-    <a href="https://wa.me/5548999318796?text=Olá,%20gostaria%20de%20informações%20sobre%20alinhamento%20de%20caminhões" class="whatsapp-float" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-    <script src="./script.js"></script>
+      </div>
+      <div class="contact-item">
+        <div class="contact-item-icon">🕐</div>
+        <div>
+          <strong>Horário de Funcionamento</strong>
+          <span>Seg–Sex: 08h–18h &nbsp;|&nbsp; Sáb: 08h–12h</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="reveal">
+    <div class="contact-form" id="contact-form">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="name">Nome</label>
+          <input type="text" id="name" placeholder="Seu nome completo" required />
+        </div>
+        <div class="form-group">
+          <label for="phone">Telefone / WhatsApp</label>
+          <input type="tel" id="phone" placeholder="(48) 9 0000-0000" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="service">Serviço desejado</label>
+        <select id="service">
+          <option value="">Selecione um serviço...</option>
+          <option>Alinhamento de Eixos</option>
+          <option>Balanceamento de Rodas</option>
+          <option>Manutenção Preventiva</option>
+          <option>Correção de Geometria</option>
+          <option>Outro / Dúvida</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="message">Mensagem</label>
+        <textarea id="message" placeholder="Descreva seu veículo ou dúvida..."></textarea>
+      </div>
+      <button class="form-submit" onclick="sendWhatsApp()">
+        <span>Enviar via WhatsApp</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">S.<span>I</span> Alinhamento</div>
+    <ul class="footer-links">
+      <li><a href="#servicos">Serviços</a></li>
+      <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#galeria">Galeria</a></li>
+      <li><a href="#blog">Blog</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ul>
+    <a href="https://wa.me/5548999318796" class="btn-primary" target="_blank">Falar no WhatsApp</a>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2019–2025 S.I Alinhamento. Todos os direitos reservados.</span>
+    <span>BR-101, km 337 - Morrotes, Tubarão/SC</span>
+  </div>
+</footer>
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/5548999318796?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20um%20serviço." class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+  // ── Nav scroll ──
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  // ── Hamburger ──
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('nav-links');
+  hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
+  hamburger.addEventListener('keydown', e => e.key === 'Enter' && navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+  // ── Scroll reveal ──
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        entry.target.style.transitionDelay = `${i * 0.05}s`;
+        entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+  // ── WhatsApp form ──
+  function sendWhatsApp() {
+    const name = document.getElementById('name').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const service = document.getElementById('service').value;
+    const message = document.getElementById('message').value.trim();
+    if (!name) { alert('Por favor, informe seu nome.'); return; }
+    let text = `Olá! Vim pelo site S.I Alinhamento.\n\n*Nome:* ${name}`;
+    if (phone) text += `\n*Telefone:* ${phone}`;
+    if (service) text += `\n*Serviço:* ${service}`;
+    if (message) text += `\n*Mensagem:* ${message}`;
+    window.open(`https://wa.me/5548999318796?text=${encodeURIComponent(text)}`, '_blank');
+  }
+</script>
 </body>
 </html>
